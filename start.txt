@@ -1,0 +1,1 @@
+docker run -it -p 1880:1880 -v /workspace/node-red-gitpod/nodered-data/:/data --name meucontainer nodered/node-red
