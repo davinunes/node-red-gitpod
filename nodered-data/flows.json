@@ -2,7 +2,15 @@
     {
         "id": "cc652f9e594df6dc",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Teste-1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4707469cb5c18dd8",
+        "type": "tab",
+        "label": "Teste-2",
         "disabled": false,
         "info": "",
         "env": []
@@ -11,6 +19,7 @@
         "id": "82d4fa798e2d8148",
         "type": "inject",
         "z": "cc652f9e594df6dc",
+        "d": true,
         "name": "Entrada",
         "props": [
             {
@@ -26,18 +35,18 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "5",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 250,
-        "y": 160,
+        "x": 220,
+        "y": 100,
         "wires": [
             [
-                "4bfd63521710ab5f"
+                "e65009d51e359702"
             ]
         ]
     },
@@ -50,8 +59,8 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 590,
@@ -63,18 +72,118 @@
         "type": "function",
         "z": "cc652f9e594df6dc",
         "name": "function 1",
-        "func": "let data=new Date(msg.payload);\nmsg.payload=data.toString();\nreturn msg;",
+        "func": "// let data=new Date(msg.payload);\n// msg.canal=data.toString();\n// let num=Math.random()*10;\n// msg.canal=num;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
+        "x": 400,
         "y": 160,
         "wires": [
             [
                 "28d259a94b7ac67b"
             ]
         ]
+    },
+    {
+        "id": "e65009d51e359702",
+        "type": "random",
+        "z": "cc652f9e594df6dc",
+        "name": "Sorteio",
+        "low": "0",
+        "high": "50",
+        "inte": "true",
+        "property": "canal",
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "4bfd63521710ab5f"
+            ]
+        ]
+    },
+    {
+        "id": "4d847ac95a54b959",
+        "type": "inject",
+        "z": "4707469cb5c18dd8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "a494963e9f039704"
+            ]
+        ]
+    },
+    {
+        "id": "a494963e9f039704",
+        "type": "function",
+        "z": "4707469cb5c18dd8",
+        "name": "function 2",
+        "func": "\nreturn [msg,null];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "c0f3071b0275df4c"
+            ],
+            [
+                "d581573acc1d2d4d"
+            ]
+        ]
+    },
+    {
+        "id": "c0f3071b0275df4c",
+        "type": "debug",
+        "z": "4707469cb5c18dd8",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d581573acc1d2d4d",
+        "type": "debug",
+        "z": "4707469cb5c18dd8",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 140,
+        "wires": []
     }
 ]
