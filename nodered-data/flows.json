@@ -1,0 +1,80 @@
+[
+    {
+        "id": "cc652f9e594df6dc",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "82d4fa798e2d8148",
+        "type": "inject",
+        "z": "cc652f9e594df6dc",
+        "name": "Entrada",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "canal",
+                "v": "DaviNunes",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 160,
+        "wires": [
+            [
+                "4bfd63521710ab5f"
+            ]
+        ]
+    },
+    {
+        "id": "28d259a94b7ac67b",
+        "type": "debug",
+        "z": "cc652f9e594df6dc",
+        "name": "Saida",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "4bfd63521710ab5f",
+        "type": "function",
+        "z": "cc652f9e594df6dc",
+        "name": "function 1",
+        "func": "let data=new Date(msg.payload);\nmsg.payload=data.toString();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "28d259a94b7ac67b"
+            ]
+        ]
+    }
+]
