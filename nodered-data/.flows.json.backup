@@ -137,7 +137,7 @@
         "type": "function",
         "z": "4707469cb5c18dd8",
         "name": "function 2",
-        "func": "\nreturn [msg,msg];",
+        "func": "\nreturn [msg,null];",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
