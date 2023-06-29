@@ -122,10 +122,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 200,
-        "y": 100,
+        "payload": "entrada1",
+        "payloadType": "str",
+        "x": 180,
+        "y": 40,
         "wires": [
             [
                 "a494963e9f039704"
@@ -137,7 +137,7 @@
         "type": "function",
         "z": "4707469cb5c18dd8",
         "name": "function 2",
-        "func": "\nreturn [msg,null];",
+        "func": "if(msg.payload == \"entrada1\"){\n    msg.payload=1;\n    return [msg, null];\n} else if (msg.payload == \"entrada2\") {\n    msg.payload = 2;\n    return [null, msg];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -167,7 +167,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 600,
-        "y": 60,
+        "y": 40,
         "wires": []
     },
     {
@@ -183,7 +183,36 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 600,
-        "y": 140,
+        "y": 160,
         "wires": []
+    },
+    {
+        "id": "07862a790f1397cf",
+        "type": "inject",
+        "z": "4707469cb5c18dd8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "entrada2",
+        "payloadType": "str",
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "a494963e9f039704"
+            ]
+        ]
     }
 ]
